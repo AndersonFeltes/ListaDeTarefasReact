@@ -1,5 +1,7 @@
 # React + Vite
 
+Projeto de lista de tarefas utilizando React JS no desenvolvimento das funcionalidadeas e Tailwind CSS para estilização.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
