@@ -1,6 +1,15 @@
 import { ChevronRight, OctagonX } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-  export function Tasks({tasks, onTaskClick, onDeleteTaskClick}) {
+export function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
+  const navigate = useNavigate();
+
+  function onSeeDetailsClick(task) {
+    const query = new URLSearchParams()
+    query.set("title", task.title)
+    query.set("description", task.description)
+    navigate(`/task?${query.toString()}`);
+  }
   // console.log(props)
   return (
     <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow">
@@ -15,7 +24,10 @@ import { ChevronRight, OctagonX } from "lucide-react";
           >
             {task.title}
           </button>
-          <button className="bg-slate-400 p-2 rounde-md text-white rounded-md">
+          <button
+            className="bg-slate-400 p-2 rounde-md text-white rounded-md"
+            onClick={() => onSeeDetailsClick(task)}
+          >
             <ChevronRight />
           </button>
           <button
