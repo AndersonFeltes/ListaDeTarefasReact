@@ -1,6 +1,16 @@
 import { ChevronRight, OctagonX } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+// export function Tasks(props) {
+//   return (
+//     <h1>
+//       {props.tasks.map((tasks) => (
+//         <p>{tasks.title}</p>
+//       ))}
+//     </h1>
+//   );
+// }
+
 export function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
   const navigate = useNavigate();
 
@@ -16,7 +26,7 @@ export function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
       {tasks.map((task) => (
         <li key={task.id} className="flex gap-2">
           <button
-            //precisa acionar o onClick com arounFunction passando  função como props e passando o ID da taerefa como parametro para a função identificar qual tarefa atualizar
+            //precisa acionar o onClick com arounFunction passando  função como props e passando o ID da tarefa como parametro para a função identificar qual tarefa atualizar
             onClick={() => onTaskClick(task.id)}
             className={`bg-slate-400 text-left text-white p-2 rounded-md w-full ${
               task.isCompleted && "line-through"

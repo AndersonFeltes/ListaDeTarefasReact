@@ -3,7 +3,26 @@ import { Tasks } from "./components/Tasks";
 import { AddTask } from "./components/AddTask";
 import { v4 } from "uuid";
 
+// export function App() {
+//   const [message, setMessage] = useState("Mensagem inicial");
 
+//   return (
+//     <div>
+//       <h1>{message}</h1>
+//       <button className="text-red-500 cursor-pointer border rounded-2xl w-2xs"
+//         onClick={() => {
+//           if (message === "mensagem alterada") {
+//             setMessage("Mensagem inicial");
+//           } else {
+//             setMessage("mensagem alterada");
+//           }
+//         }}
+//       >
+//         Mudar mensagem
+//       </button>
+//     </div>
+//   );
+// }
 export function App() {
   const [tasks, setTasks] = useState([
     {
@@ -49,12 +68,12 @@ export function App() {
   function onAddTaskSubmit(title, description) {
     const newTask = {
       id: v4(),
-      title:title,
-      description:description,
+      title: title,
+      description: description,
       isCompleted: false,
     };
 
-    setTasks([...tasks, newTask])
+    setTasks([...tasks, newTask]);
   }
 
   return (
@@ -63,7 +82,7 @@ export function App() {
         <h1 className="text-3xl text-slate-100 font-bold text-center">
           Gerenciador de Tarefas
         </h1>
-        <AddTask onAddTaskSubmit={onAddTaskSubmit}/>
+        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
           tasks={tasks}
           onTaskClick={onTaskClick}
